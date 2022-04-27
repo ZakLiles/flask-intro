@@ -2,7 +2,7 @@
 
 from random import choice
 
-from flask import Flask, request
+from flask import Flask, render_template, request
 
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
@@ -25,26 +25,7 @@ def start_here():
 def say_hello():
     """Say hello and prompt for user's name."""
 
-    return """
-    <!doctype html>
-    <html>
-      <head>
-        <title>Hi There!</title>
-      </head>
-      <body>
-        <h1>Hi There!</h1>
-        <form action="/greet">
-          What's your name? <input type="text" name="person">
-          <input type="submit" value="Submit">
-          <select name='compliments' method='GET'>
-            {% for compliment in AWESOMENESS: %}
-              <option value = '{{compliment}}'>{{compliment}}</option>
-            {% endfor %}
-          </select>
-        </form>
-      </body>
-    </html>
-    """
+    return render_template('hello.html', awesomeness = AWESOMENESS)
 
 
 @app.route('/greet')
