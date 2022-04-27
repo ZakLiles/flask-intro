@@ -8,11 +8,19 @@
     <form action="/greet">
       What's your name? <input type="text" name="person">
       <input type="submit" value="Submit">
-      <select name="compliments" method="GET">
+      <select name="compliment" method="GET">
         {% for compliment in awesomeness: %}
           <option value = "{{compliment}}">{{compliment}}</option>
         {% endfor %}
       </select>
     </form>
-  </body>
+    <form action="/diss">
+      What's your name? <input type="text" name="person">
+      <input type="submit" value="Submit">
+      <select name="diss" method="GET">
+        {% for diss in insults: %}
+          <option value = "{{diss}}">{{diss}}</option>
+        {% endfor %}
+      </select>
+    </form>
 </html>
