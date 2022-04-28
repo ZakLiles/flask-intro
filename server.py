@@ -19,7 +19,7 @@ INSULTS = ['awful', 'unpleasant', 'eww', 'terrible', 'horrible', 'positively dre
 def start_here():
     """Home page."""
 
-    return "<!doctype html><html>Hi! This is the home page.<a href='/hello'>hello</a></html>"
+    return render_template('home.html')
 
 
 @app.route('/hello')
